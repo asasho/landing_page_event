@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.html_class{
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  position:fixed;
+}
+  
+.body_class{
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  position:fixed;
+}

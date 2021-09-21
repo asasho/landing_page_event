@@ -5,14 +5,10 @@ const Footer = () => {
         <>
           <Foot>
             <Row>
-              <FooterItem>運営会社</FooterItem>
-              <FooterItem>利用規約</FooterItem>
-              <FooterItem>プライバシー</FooterItem>
+              <FooterItem><Item href="https://www.ikemotokatsuyuki.net/law/" >特定商取引法</Item></FooterItem>
             </Row>
             <Row>
-              <FooterItem>Team Link</FooterItem>
-              <FooterItem>Team Link Admin</FooterItem>
-              <FooterItem>ID就活</FooterItem>
+              <FooterItem><Item href="https://www.ikemotokatsuyuki.net/pp/">プライバシーポリシー</Item></FooterItem>
             </Row>
           </Foot>
         </>
@@ -23,16 +19,25 @@ export default Footer;
 
 const Foot = styled.div`
    width: 100%;
-   padding-bottom: 20px;
+   padding-bottom: 120px;
    display: flex;
+   justify-content: center;
    border-top: 1px solid #C0C0C0;
    font-family: Inter, "Noto Sans JP", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+   @media (max-width: 768px) {
+       padding-bottom: 80px;
+   }
 `;
 
 const Row = styled.div`
-   width: 30%;
-   margin-left: 20%;
+   width: 40%;
 `;
 
 const FooterItem = styled.h4`
+   cursor: pointer;
+`;
+
+const Item = styled.a`
+   text-decoration: none;
+   color: black;
 `;

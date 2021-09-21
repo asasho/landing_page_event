@@ -7,7 +7,6 @@ const Profile = () => {
         <Page>
           <Photo>
             <Left src={President2} alt="President2" />
-            <Center><Name>池本克之</Name></Center>
           </Photo>
           <Right>
             <Text>
@@ -40,7 +39,7 @@ const Page = styled.div`
 `;
 
 const Photo = styled.div`
-   width: 65%;
+   width: 75%;
    position: relative;
    z-index: 1;
    @media (max-width: 768px) {
@@ -53,28 +52,33 @@ const Left = styled.img`
    width: 100%;
 `;
 
-const Center = styled.div`
-   position: absolute;
-   top: 50%;
-   left: 74%;
-   -ms-transform: translate(-50%, -50%); 
-   -webkit-transform: translate(-50%, -50%); 
-   transform: translate(-50%, -50%); 
-   @media (max-width: 768px) {
-       width: 150px
-   }
-`;
+// const Center = styled.div`
+//   position: absolute;
+//   top: 50%;
+//   left: 74%;
+//   -ms-transform: translate(-50%, -50%); 
+//   -webkit-transform: translate(-50%, -50%); 
+//   transform: translate(-50%, -50%); 
+//   @media (max-width: 768px) {
+//       width: 150px
+//   }
+// `;
 
-const Name = styled.h1`
-   font-weight: 700;
-   font-size: 48px;
-   font-family: "inherit";
-   text-align: center;
-   padding: 0 10px 0 10px;
-   @media (max-width: 768px) {
-       font-size: 24px;
-   }
-`;
+// const Name = styled.h1`
+//   font-weight: 700;
+//   font-size: 48px;
+//   text-align: center;
+//   padding: 0 10px 0 10px;
+//   @media (max-width: 1390px) {
+//       font-size: 40px;
+//   }
+//   @media (max-width: 1390px) {
+//       font-size: 32px;
+//   }
+//   @media (max-width: 970px) {
+//       font-size: 24px;
+//   }
+// `;
 
 const Right = styled.div`
    width: 35%;
@@ -93,16 +97,15 @@ const Text = styled.div`
 
 const Title = styled.h2`
    font-weight: 700;
-   font-family: "inherit";
 `;
 
 const Content = styled.ul`
-   
+   padding-left: 0;
+   padding-right: 10px;
 `;
 
 const Item = styled.li`
    font-weight: 600;
    font-size: 20px;
-   font-family: "inherit";
 `;
 

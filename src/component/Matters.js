@@ -8,20 +8,20 @@ import SquareIcon from './SquareIcon'
 const Matters = () => {
     const settings = {
       rows: 1,
-      dots: false,
+      dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       centerMode: true,
-      centerPadding: 60,
+      
       swwipeToSlide: true,
     };
     return (
         <>
           <MattersPage>
             <Title><SquareIcon/>過去に池本が紹介した案件</Title>
-            <MediaQuery minWidth={768}>
+            <MediaQuery minWidth={769}>
               <Box>
                 {items.map((item) => 
                   <Matter key={item.id}>
@@ -51,10 +51,10 @@ const Matters = () => {
 }
 
 const items = [
-    {id: 1, name: "整骨院のLP作成および，PPC運用", tag1: "#LP作成", tag2: "#PPC運用"},
-    {id: 2, name: "新規事業（美容商品の通販）のプロジェクトマネジメント", tag1: "#新規事業", tag2: "#プロジェクトマネジメント"},
+    {id: 1, name: "ビジネス向け動画プラットフォームの開発", tag1: "#システム開発", tag2: "#動画配信システム"},
+    {id: 2, name: "職人に特化したマッチングアプリ", tag1: "#システム開発", tag2: "#マッチングアプリ"},
     {id: 3, name: "採用に繋がるホームページ制作", tag1: "#ホームページ制作", tag2: "#採用ブランディング"},
-    {id: 4, name: "職人に特化したマッチングアプリ", tag1: "#システム開発", tag2: "#マッチングアプリ"},
+    {id: 4, name: "新規事業（美容商品の通販）のプロジェクトマネジメント", tag1: "#新規事業", tag2: "#プロジェクトマネジメント"},
     {id: 5, name: "化粧品会社のYouTubeコンサルティング", tag1: "#YouTubeコンサルティング", tag2: "#webマーケティング"},
     {id: 6, name: "食品会社のオンラインショップのPPC運用", tag1: "#PPC運用", tag2: "#リスティング広告"}
 ]
@@ -72,7 +72,6 @@ const MattersPage = styled.div`
 const Title = styled.h1`
    font-weight: 700;
    text-align: center;
-   font-family: sans-serif;
    @media (max-width: 768px) {
        font-size: 24px;
    }
@@ -92,15 +91,18 @@ const Box = styled.div`
 const Matter = styled.div`
    width: 25%;
    margin: 0 2% 40px 2%;
-   height: 120px;
+   height: 140px;
    box-shadow: 0 0 8px gray;
    border-radius: 10px;
+   @media (max-width: 1090px) {
+       height: 180px;
+   }
    @media (max-width: 768px) {
        font-size: 16px;
-       height: 140px;
-       width: 270px !important;
-       margin: 0 20px !important;
-   }
+       margin: 0;
+       height: 150px;
+       width: 320px;
+    }
 `;
 
 const  Name = styled.p`
@@ -108,13 +110,14 @@ const  Name = styled.p`
 `;
 
 const HashTag = styled.div`
-   display: float;
+   display: flex;
    flex-wrap: wrap;
 `;
 
 const Tag = styled.p`
    justify-content: start;
    background-color: #707070;
+   flex-wrap: wrap;
    color: white;
    padding: 5px;
    margin: 0 5px 5px 5px;
@@ -122,20 +125,17 @@ const Tag = styled.p`
 `;
 
 const StyledSlider = styled(Slider)`
-  display: flex !important;
+  width: 100%;
+  display: flex;
   justify-content: space-between !important;
-  .slick-prev{
-      left: 25px !important;
-      z-index: 10 !important;
+  .slick-slide{
+      margin:20px;
   }
-  .slick-next{
-      right: 25px !important;
-  }
+  
   .slick-track{
       display:flex !important;
-       width: 100% !important;
   }
-  .slick-slide{
-      padding: 5px;
+
+    
   }
 `;

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import MediaQuery from 'react-responsive'
 import Client1 from '../images/Client1.png'
+import Client2 from '../images/Client2.jpg'
 import SquareIcon from './SquareIcon'
 
 const Clients = () => {
@@ -11,10 +12,15 @@ const Clients = () => {
           {items.map((item) =>
             <Client key={item.id} >
               <Left>
-                <Photo src={Client1} alt="Client1" ></Photo>
+                <MediaQuery minWidth={769}>
+                  <Photo>{item.imgPc}</Photo>
+                </MediaQuery>
+                <MediaQuery maxWidth={768}>
+                  <Photo>{item.imgSp}</Photo>
+                </MediaQuery>
                 <Box></Box>
                 <Profile>{item.name}</Profile>
-                <MediaQuery minWidth={768}><Triangle></Triangle></MediaQuery>
+                <MediaQuery minWidth={769}><Triangle></Triangle></MediaQuery>
                 <Industry><Text>{item.field}</Text></Industry>
               </Left>
               <Right>
@@ -29,8 +35,8 @@ const Clients = () => {
 }
 
 const items = [
-    {id: 1, name: "ネオプロモーション株式会社", field: "広告プロモーション", main: "利益数千万、8桁の可能性があります。", comment: "これまで自分達が出会えなかった十数社の企業にお会いすることが出来ました。今回のアライアンス・マッチング大会を機に、アライアンスの可能性をスピーディーに実現できるのではないかと期待しています。"},
-    {id: 2, name: "ネオプロモーション株式会社", field: "広告プロモーション", main: "利益数千万、8桁の可能性があります。", comment: "これまで自分達が出会えなかった十数社の企業にお会いすることが出来ました。今回のアライアンス・マッチング大会を機に、アライアンスの可能性をスピーディーに実現できるのではないかと期待しています。"}
+    {id: 1, imgPc: <img src={Client1} alt="Client1" height="100%" />, imgSp: <img src={Client1} alt="Client1" width="100%" /> , name: "ネオプロモーション株式会社", field: "広告プロモーション", main: "利益数千万、8桁の可能性があります。", comment: "池本さんを通じてこれまで自分達が出会えなかった十数社の企業にお会いすることが出来ました。今回の事業提携マッチング大会を機に、アライアンスの可能性をスピーディーに実現できるはずです。"},
+    {id: 2, imgPc: <img src={Client2} alt="Client2" height="100%" />, imgSp: <img src={Client2} alt="Client2" width="100%" /> , name: "株式会社シナジスタ", field: "Webマーケティング", main: "アライアンスにより新規案件20件以上獲得", comment: "池本さんは、案件をたくさん持っていると同時に、案件の内容も幅広いので、自社にマッチした案件を紹介いただけます。また商談の際に直接紹介いただけますので、他者と相見積もりになることもなく助かっています。"}
 ]
 
 export default Clients;
@@ -54,7 +60,7 @@ const Client = styled.div`
    box-shadow: 0 0 8px gray;
    @media (max-width: 768px) {
        flex-flow: column;
-       height: 450px;
+       height: auto;
        width: 80%;
        margin-bottom: 50px;
    }
@@ -65,11 +71,11 @@ const Left = styled.div`
    position: relative;
    @media (max-width: 768px) {
        width: 100%;
-       height: px;
+       height: auto;
    }
 `;
 
-const Photo = styled.img`
+const Photo = styled.div`
    height: 100%;
    z-index: 1;
    @media (max-width: 768px) {
@@ -101,6 +107,13 @@ const Profile = styled.h3`
    display: table-cell;
    vertical-align: middle;
    @media (max-width: 768px) {
+       text-align: center;
+       width: 100%;
+       top: 80%;
+       left: 50%;
+       -ms-transform: translate(-50%, -50%); 
+       -webkit-transform: translate(-50%, -50%);
+       transform: translate(-50%, -50%); 
        font-size: 16px;
    }
 `;
@@ -114,7 +127,7 @@ const Triangle = styled.div`
    border-bottom: 250px solid #152d4a;
    border-right: 250px solid transparent;
    border-left: 250px solid transparent;
-   border-left-width: 30px;
+   border-left-width: 20px;
    border-right-width: 0px;
 `;
 
@@ -141,22 +154,25 @@ const Right = styled.div`
    height: 100%;
    padding: 0 100px 0 50px;
    background-color: #152d4a;
-   @media (max-width: 768px) {
+   @media (max-width: 1280px) {
        padding: 0 20px 0 20px;
+   }
+   @media (max-width: 768px) {
+       padding-bottom: 20px;
    }
 `;
 
 const Message = styled.h2`
    color: white;
    padding: 20px 0 10px 0;
-   @media (max-width: 768px) {
+   @media (max-width: 1280px) {
        font-size: 18px;
    }
 `;
 
 const Comment = styled.h3`
    color: white;
-   @media (max-width: 768px) {
+   @media (max-width: 1280px) {
        font-size: 16px;
    }
 `;

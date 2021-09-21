@@ -12,7 +12,7 @@ const CTA = () => {
             </Message>
             <Icon src={Arrow} alt="Arrow"></Icon>
             <Message>
-              参加費用5000円<br/>
+              参加費用5500円<br/>
               （TeamLink有料会員は無料）
             </Message>
             <Cta>今すぐ参加</Cta>
@@ -45,4 +45,5 @@ const Cta = styled.button`
   　padding: 12px 48px 12px 48px;
   　border: none;
   　border-radius: 5px;
+  　cursor: pointer;
 `;

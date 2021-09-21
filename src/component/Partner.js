@@ -30,6 +30,11 @@ const Title = styled.h1`
 
 const Photo = styled.img`
    display: block;
-   margin: 0 5% 0 5%;
-   width: 90%;   
+   margin: 0 20% 0 20%;
+   width: 60%;   
+   @media (max-width: 768px){
+       margin: 0 5% 0 5%;
+       width: 90%;       
+   }
+   
 `;

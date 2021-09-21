@@ -1,29 +1,16 @@
 import styled from 'styled-components'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import ComputerIcon from '@material-ui/icons/Computer';
 import SquareIcon from './SquareIcon'
-import MediaQuery from 'react-responsive'
 
 const Feature = () => {
-    const settings = {
-      dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      centerMode: true,
-      centerPadding: 60,
-      swwipeToSlide: true,
-    };
     return(
         <>
          <Page>
           <Title><SquareIcon/>お申込みから参加までの流れ</Title>
-          <MediaQuery minWidth={768}>
             <Items>
               {items.map((item) => 
                 <Item key={item.id}>
@@ -36,21 +23,6 @@ const Feature = () => {
                 </Item>
               )}
             </Items>
-          </MediaQuery>
-          <MediaQuery maxWidth={768}>
-              <StyledSlider {...settings}>
-                {items.map((item) => 
-                  <Item key={item.id}>
-                    <Logo>{item.icon}</Logo>
-            　       <Step>
-                      <Num>{item.id}.</Num>
-                      <StepTitle>{item.title}</StepTitle>
-                    </Step>
-                    <Content>{item.content}</Content>
-                  </Item>
-                )}
-              </StyledSlider>
-          </MediaQuery>
          </Page>
         </>
     )
@@ -72,7 +44,6 @@ const Page = styled.div`
 const Title = styled.h1`
    text-align: center;
    font-weight: 700;
-   font-family: "inherit";
    @media (max-width: 768px) {
        font-size: 24px;
    }
@@ -81,7 +52,9 @@ const Title = styled.h1`
 const Items = styled.div`
    display: flex;
    justify-content: center;
-   
+   @media (max-width: 768px) {
+       flex-flow: column;
+   }
 `;
 
 const Item = styled.div`
@@ -89,9 +62,8 @@ const Item = styled.div`
    margin: 0 2% 40px 2%;
    @media (max-width: 768px) {
        flex-flow: column;
-       width: 100%;
-       margin: auto;
-       padding: 0 30% 0 30%;
+       width: 80%;
+       margin: 0 10% 30px 10%;
    }
 `;
 
@@ -133,17 +105,3 @@ const Content = styled.h3`
 
 `;
 
-const StyledSlider = styled(Slider)`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  .slick-prev{
-      left: 25px !important;
-      background-color: black !important;
-      z-index: 10 !important; 
-  }
-  .slick-next{
-      right: 25px !important;
-      background-color: black !important;
-  }
-`;

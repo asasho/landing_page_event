@@ -25,7 +25,6 @@ const EventPage = styled.div`
 
 const Title = styled.h1`
    text-align: center;
-   font-family: "inherit";
    @media (max-width: 768px) {
        font-size: 24px;
    }

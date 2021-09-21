@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components'
 import MediaQuery from 'react-responsive'
 import Hamburger from 'hamburger-react'
+import * as Scroll from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import TeamLink from '../images/TeamLink_logo.png'
 import { useScroll } from 'react-scroll-hooks';
@@ -9,12 +11,23 @@ import First from './First'
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false)
-  const containerRef = React.useRef();
-  const elementRef = React.useRef();
-  const elementRef2 = React.useRef();
-  const elementRef3 = React.useRef();
-  const scrollSpeed = 50;
-  const { scrollToElement, scrollToY } = useScroll({ scrollSpeed, containerRef })
+  const Link      = Scroll.Link;
+　const Element   = Scroll.Element;
+　const Events    = Scroll.Events;
+　const scroll    = Scroll.animateScroll;
+　const scrollSpy = Scroll.scrollSpy;
+  
+  const scrollTop = () => {
+    scroll.scrollToTop();
+  }
+  
+  const scrollBottom = () => {
+    scroll.scrollToBottom();
+  }
+  
+  const scrollMore = () => {
+    scroll.scrollToMore(100);
+  }
   
   return (
     <>
@@ -22,10 +35,14 @@ const Header = () => {
         <LogoImg src={TeamLink} alt="logo" />
         <Right>
           <MediaQuery minWidth={768}>
-            <Table ref={containerRef} style={{ position: 'relative', overflow: 'scroll' }} >
-              <HeaderItem onClick={() => scrollToElement(elementRef)}>特徴</HeaderItem>
-              <HeaderItem onClick={() => scrollToElement(elementRef2)}>アライアンス<br/>事例</HeaderItem>
-              <HeaderItem onClick={() => scrollToElement(elementRef3)}>イベント概要</HeaderItem>
+            <Table>
+              <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}>特徴</Link>
+              <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}>アライアンス<br/>事例</Link>
+              <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}>イベント概要</Link>
+              <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}>料金</Link>
+              <HeaderItem>特徴</HeaderItem>
+              <HeaderItem>アライアンス<br/>事例</HeaderItem>
+              <HeaderItem>イベント概要</HeaderItem>
               <HeaderItem>料金</HeaderItem>
             </Table>
           </MediaQuery> 
@@ -42,12 +59,6 @@ const Header = () => {
           </MediaQuery>
         </Right>
       </Nav>
-      <First/>
-      <p ref={elementRef} >1</p>
-      <First/>
-      <p ref={elementRef2}></p>
-      <First/>
-      <p ref={elementRef3}></p>
     </>
   );
 }
